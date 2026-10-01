@@ -1,0 +1,52 @@
+server:
+  port: 8080
+  error:
+    include-message: never
+    include-stacktrace: never
+spring:
+  application:
+    name: campusmatch
+  datasource:
+    # Zero-setup dev database. Use the "postgres" profile for PostgreSQL.
+    url: jdbc:h2:file:./data/campusmatch;MODE=PostgreSQL;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: ""
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  mail:
+    host: ${MAIL_HOST:}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 6MB
+app:
+  job-import:
+    expire-days: ${JOB_EXPIRE_DAYS:30}
+    interval-ms: ${JOB_IMPORT_INTERVAL_MS:43200000}
+    scheduled-initial-delay-ms: ${JOB_IMPORT_INITIAL_DELAY_MS:60000}
+    india-locations: ${JOB_IMPORT_INDIA_LOCATIONS:Bengaluru,Bangalore,Hyderabad,Chennai,Pune,Mumbai,Delhi,Noida,Gurugram,Gurgaon,India,Remote}
+    lever-boards: ${LEVER_BOARDS:Stable Money|stable-money1,100ms|100ms,Acceldata|acceldata,Gushwork|gushwork,Saviynt|saviynt,Findem|findem,Weekday|weekdayworks,Level AI|levelai,Kobie Marketing|kobie}
+    ashby-boards: ${ASHBY_BOARDS:Overview|overview,Plotline|plotlineso,Ema|ema,Founders Factory|founders-factory,Handshake|handshake,CUBE|CUBE,Runbook|Runbook}
+  jwt:
+    # DEV DEFAULT ONLY. Set APP_JWT_SECRET (32+ chars) in any real deployment.
+    secret: ${APP_JWT_SECRET:884f6b0cf9c1f67fd30e8f6023bce39c5e4bd7c2327af004b8851238e16cd558}
+    ttl-minutes: 60
+  # DEV DEFAULT ONLY. 32 random bytes, base64. Set APP_ENC_KEY in any real deployment.
+  enc-key: ${APP_ENC_KEY:gHJ4iGSEdD/cVQIJudFPyjwBP1+lhjYOBwwpF35KcD4=}
+  storage-dir: ${APP_STORAGE_DIR:./data/resumes}
+  admin-email: ${APP_ADMIN_EMAIL:}
+  admin-password: ${APP_ADMIN_PASSWORD:}
+  verification:
+    dev-mode: ${APP_VERIFICATION_DEV_MODE:true}
+    from: ${APP_VERIFICATION_FROM:}
+    twilio-account-sid: ${TWILIO_ACCOUNT_SID:}
+    twilio-auth-token: ${TWILIO_AUTH_TOKEN:}
+    twilio-from: ${TWILIO_FROM:}

@@ -1,0 +1,54 @@
+:root {
+  --bg: #f3f5f8; --card: #fff; --ink: #0f1b2d; --muted: #5a6577; --line: #dde2ea;
+  --accent: #2447f5; --accent-ink: #fff; --good: #17794a; --warn: #a86a00; --bad: #b42323;
+  --radius: 10px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.5; }
+a { color: var(--accent); }
+header.top { background: var(--ink); color: #fff; }
+header.top .bar { max-width: 1000px; margin: 0 auto; padding: .7rem 1rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+header.top .brand { font-weight: 700; font-size: 1.15rem; margin-right: auto; color: #fff; text-decoration: none; }
+header.top nav { display: flex; gap: .25rem; flex-wrap: wrap; }
+header.top nav a, header.top button.link { color: #cfd7e6; text-decoration: none; padding: .35rem .7rem; border-radius: 6px; background: none; border: 0; font: inherit; cursor: pointer; }
+header.top nav a.on { background: #24344f; color: #fff; }
+header.top nav a:hover, header.top button.link:hover { color: #fff; }
+main { max-width: 1000px; margin: 0 auto; padding: 1.25rem 1rem 3rem; }
+h1 { font-size: 1.6rem; margin: .2rem 0 1rem; }
+h2 { font-size: 1.15rem; margin: 0 0 .5rem; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.1rem; margin-bottom: 1rem; }
+.grid { display: grid; gap: .75rem 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+label { display: block; font-size: .85rem; color: var(--muted); }
+input, select, textarea { width: 100%; margin-top: .2rem; padding: .55rem .6rem; border: 1px solid var(--line); border-radius: 7px; font: inherit; color: var(--ink); background: #fff; }
+input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+textarea { min-height: 80px; resize: vertical; }
+input[type=checkbox] { width: auto; margin-right: .4rem; }
+button, .btn { display: inline-block; background: var(--accent); color: var(--accent-ink); border: 0; padding: .55rem 1rem; border-radius: 7px; font: inherit; font-weight: 600; cursor: pointer; text-decoration: none; }
+button.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+button:disabled { opacity: .6; cursor: wait; }
+.row { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+.spread { justify-content: space-between; }
+.muted { color: var(--muted); font-size: .9rem; }
+.notice { padding: .6rem .8rem; border-radius: 7px; margin: .6rem 0; font-size: .92rem; }
+.notice.err { background: #fdecec; color: var(--bad); }
+.notice.ok { background: #e7f6ee; color: var(--good); }
+.notice.warn { background: #fff4de; color: var(--warn); }
+.chips { display: flex; gap: .35rem; flex-wrap: wrap; margin: .35rem 0; }
+.chip { font-size: .78rem; padding: .1rem .55rem; border-radius: 99px; border: 1px solid var(--line); background: #f7f8fb; }
+.chip.have { background: #e7f6ee; border-color: #b8e0cb; color: var(--good); }
+.chip.miss { background: #fdecec; border-color: #f2c4c4; color: var(--bad); }
+.badge { font-size: .72rem; padding: .1rem .45rem; border-radius: 5px; background: #fff4de; color: var(--warn); }
+.score { font-size: 2.6rem; font-weight: 800; line-height: 1; }
+.score small { font-size: 1rem; font-weight: 500; color: var(--muted); }
+meter { width: 100%; height: 12px; }
+.cat { border-top: 1px solid var(--line); padding: .6rem 0; }
+.cat summary { cursor: pointer; display: flex; justify-content: space-between; gap: 1rem; font-weight: 600; }
+.cat ul { margin: .4rem 0 0; padding-left: 1.2rem; }
+.cat li.fix { color: var(--warn); }
+.job h3 { margin: 0; font-size: 1.05rem; }
+.pager { display: flex; gap: .6rem; align-items: center; justify-content: center; margin-top: .5rem; }
+.loading { color: var(--muted); padding: 1rem; }
+.auth { max-width: 420px; margin: 2rem auto; }
+table { width: 100%; border-collapse: collapse; }
+td, th { text-align: left; padding: .5rem .4rem; border-top: 1px solid var(--line); font-size: .92rem; vertical-align: top; }

@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/campusmatch}
+    username: ${DB_USER:campusmatch}
+    password: ${DB_PASSWORD:campusmatch}
+  jpa:
+    hibernate:
+      ddl-auto: update   # production: switch to "validate" and manage schema with Flyway
